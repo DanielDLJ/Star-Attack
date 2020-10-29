@@ -30,6 +30,9 @@ public class EnemyScript : MonoBehaviour{
                 rotate_Speed *= -1f;
             }
         }
+        if (canShoot) 
+            Invoke("StartShooting", Random.Range(1f, 3f));
+
     }
 
     // Update is called once per frame
@@ -52,6 +55,32 @@ public class EnemyScript : MonoBehaviour{
     void RotateEnemy(){
         if (canRotate){
             transform.Rotate(new Vector3(0f, 0f, rotate_Speed * Time.deltaTime), Space.World);
+        }
+    }
+
+    void StartShooting() {
+        GameObject bullet = Instantiate(bulletPrefab, attack_Point.position, Quaternion.Euler(0f, 0f, 90f));
+        bullet.GetComponent<BulletScript>().is_EnemyBullet = true;
+        if (canShoot) {
+            Invoke("StartShooting", Random.Range(1f, 3f));
+        }
+    }
+
+    void TurnOffGameObject() {
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D target){
+        if (target.tag == "Bullet"){
+            canMove = false;
+            if (canShoot) {
+                canShoot = false;
+                CancelInvoke("StartShooting");
+            }
+            Invoke("TurnOffGameObject", 0.7f);
+            //TurnOffGameObject();
+            animation.Play("Destroy");
         }
     }
 }

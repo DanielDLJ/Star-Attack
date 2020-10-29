@@ -57,9 +57,11 @@ public class PlayerController : MonoBehaviour{
             if (canAttack){
                 canAttack = false;
                 attack_Timer = 0f;
-                Transform baseAmmoTransform = player_Bullet.GetComponentsInChildren<Transform>(true)[0];
-                Quaternion baseAmmoRotation = baseAmmoTransform.rotation;
-                Instantiate(player_Bullet, attack_Point.position, baseAmmoRotation);
+                //Transform baseAmmoTransform = player_Bullet.GetComponentsInChildren<Transform>(true)[0];
+                //Quaternion baseAmmoRotation = baseAmmoTransform.rotation;
+
+                Instantiate(player_Bullet, attack_Point.position, Quaternion.Euler(0f, 0f, 90f));
+                //Instantiate(player_Bullet, attack_Point.position, baseAmmoRotation);
                 //Instantiate(player_Bullet, attack_Point.position, Quaternion.identity);
             }
         }
