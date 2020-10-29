@@ -9,5 +9,5 @@ AnimatorOverrideController:
   m_Name: Asteroid Controller
   m_Controller: {fileID: 9100000, guid: 33dae0310ce3fc6438f93434acc99dcc, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: e2e63d02dbbd3be4282cde56d89945dd, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e2e63d02dbbd3be4282cde56d89945dd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9be78b0fc1939ad49b0b44b92bf56b27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9be78b0fc1939ad49b0b44b92bf56b27, type: 2}

@@ -78,8 +78,10 @@ public class EnemyScript : MonoBehaviour{
                 canShoot = false;
                 CancelInvoke("StartShooting");
             }
-            Invoke("TurnOffGameObject", 0.7f);
+            //Invoke("TurnOffGameObject", 0.7f);
+            Invoke("TurnOffGameObject", 3f);
             //TurnOffGameObject();
+            exposionSound.Play();
             animation.Play("Destroy");
         }
     }
