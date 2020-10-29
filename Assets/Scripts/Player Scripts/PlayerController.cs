@@ -18,12 +18,19 @@ public class PlayerController : MonoBehaviour{
     private float current_Attack_Timer;
     private bool canAttack;
 
-    private AudioSource laserAudio;
+    //public AudioSource[] audio_list;
+    public AudioClip audio_laser;
+    public AudioClip audio_explosion;
+    private AudioSource audioSource;
+
+
+    private Animator animation;
 
     // Start is called before the first frame update
     void Start(){
         current_Attack_Timer = attack_Timer;
-        laserAudio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        animation = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -85,9 +92,25 @@ public class PlayerController : MonoBehaviour{
                 //Instantiate(player_Bullet, attack_Point.position, Quaternion.identity);
 
                 //Play Audio
-                laserAudio.Play();
-                
+                //audioSource.Play();
+                audioSource.PlayOneShot(audio_laser, 1f);
             }
+        }
+
+
+    }
+
+    void DeactivateGameObject_GameOver() {
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+    void OnTriggerEnter2D(Collider2D target) {
+        if (target.tag == "Bullet" || target.tag == "Enemy") {
+
+        //if (target.tag == "Enemy"){
+            Invoke("DeactivateGameObject_GameOver", 3f);
+            audioSource.PlayOneShot(audio_explosion, 1f);
+            animation.Play("Destroy");
         }
     }
 

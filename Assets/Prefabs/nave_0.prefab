@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 2362740831025291562}
   - component: {fileID: 5923501323975082749}
   - component: {fileID: 6044534563183041622}
+  - component: {fileID: 5519918214584796759}
   m_Layer: 0
   m_Name: nave_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +154,8 @@ MonoBehaviour:
   player_Bullet: {fileID: 3815709850612595065, guid: d6769771c863a35409372b577138c0cc,
     type: 3}
   attack_Point: {fileID: 5155324547951806791}
+  audio_laser: {fileID: 8300000, guid: fc620d8ffaf5677438c00b6d8aaac343, type: 3}
+  audio_explosion: {fileID: 8300000, guid: d47eb3efc4be66142845e6aa2fe697f5, type: 3}
 --- !u!82 &6044534563183041622
 AudioSource:
   m_ObjectHideFlags: 0
@@ -163,7 +166,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fc620d8ffaf5677438c00b6d8aaac343, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -249,6 +252,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &5519918214584796759
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362740831025291563}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: c06f6cd286255f74699f7f7d634626a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3506382621050464158
 GameObject:
   m_ObjectHideFlags: 0

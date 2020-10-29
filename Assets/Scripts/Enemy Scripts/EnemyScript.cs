@@ -71,16 +71,24 @@ public class EnemyScript : MonoBehaviour{
         //Destroy(gameObject);
     }
 
+    void TurnOffBoxCollider() {
+        Debug.Log("canShoot ="+ canShoot+ "  canRotate = "+ canRotate);
+        //already disabled canShoot // canShoot == false (already disabled) && canRotate == false (not asteroid)
+        if ((canShoot == false && canRotate == false || canShoot == true) && GetComponent<BoxCollider2D>() != null) GetComponent<BoxCollider2D>().enabled = false;
+        //asteroid
+        if (canRotate) GetComponent<CircleCollider2D>().enabled = false;
+    }
+
     void OnTriggerEnter2D(Collider2D target){
+        Debug.Log("1");
         if (target.tag == "Bullet"){
             canMove = false;
             if (canShoot) {
                 canShoot = false;
                 CancelInvoke("StartShooting");
             }
-            //Invoke("TurnOffGameObject", 0.7f);
-            Invoke("TurnOffGameObject", 3f);
-            //TurnOffGameObject();
+            Invoke("TurnOffGameObject", 2.5f);
+            Invoke("TurnOffBoxCollider", 0f);
             exposionSound.Play();
             animation.Play("Destroy");
         }
