@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Asteroid Controller
+  m_Controller: {fileID: 9100000, guid: 33dae0310ce3fc6438f93434acc99dcc, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e2e63d02dbbd3be4282cde56d89945dd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e2e63d02dbbd3be4282cde56d89945dd, type: 2}
