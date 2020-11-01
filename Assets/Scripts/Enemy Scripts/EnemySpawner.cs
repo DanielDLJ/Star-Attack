@@ -12,6 +12,14 @@ public class EnemySpawner : MonoBehaviour{
 
     public float timer = 2f;
 
+    private float reference_timer = 0f;
+    private float reference_speed = 1f;
+    private float timer_fase1 = 30f;
+    private float timer_fase2 = 50f;
+    private float timer_fase3 = 100f;
+    private float timer_fase4 = 150f;
+
+
     // Start is called before the first frame update
     void Start(){
         Invoke("SpawnEnemies", timer);
@@ -19,6 +27,7 @@ public class EnemySpawner : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+        reference_timer += reference_speed * Time.deltaTime;
     }
 
     void SpawnEnemies(){
@@ -31,6 +40,11 @@ public class EnemySpawner : MonoBehaviour{
         }else {
             Instantiate(enemyPrefab, temp, Quaternion.Euler(0f, 0f, 90f));
         }
+
+        if (reference_timer > timer_fase1) timer = 1.5f;
+        if (reference_timer > timer_fase2) timer = 1.0f;
+        if (reference_timer > timer_fase3) timer = 0.5f;
+        if (reference_timer > timer_fase4) timer = 0.3f;
         Invoke("SpawnEnemies", timer);
     }
 }

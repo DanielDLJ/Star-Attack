@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour{
     public AudioClip audio_explosion;
     private AudioSource audioSource;
 
+    public AliveTime aliveTime;
+
 
     private Animator animation;
 
@@ -116,6 +118,7 @@ public class PlayerController : MonoBehaviour{
             Invoke("DeactivateGameObject_GameOver", 2.5f);
             audioSource.PlayOneShot(audio_explosion, 1f);
             animation.Play("Destroy");
+            if(aliveTime) aliveTime.stropTimer();
         }
     }
 
