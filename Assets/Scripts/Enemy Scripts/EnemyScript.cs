@@ -72,7 +72,6 @@ public class EnemyScript : MonoBehaviour{
     }
 
     void TurnOffBoxCollider() {
-        Debug.Log("canShoot ="+ canShoot+ "  canRotate = "+ canRotate);
         //already disabled canShoot // canShoot == false (already disabled) && canRotate == false (not asteroid)
         if ((canShoot == false && canRotate == false || canShoot == true) && GetComponent<BoxCollider2D>() != null) GetComponent<BoxCollider2D>().enabled = false;
         //asteroid
@@ -80,7 +79,6 @@ public class EnemyScript : MonoBehaviour{
     }
 
     void OnTriggerEnter2D(Collider2D target){
-        Debug.Log("1");
         if (target.tag == "Bullet"){
             canMove = false;
             if (canShoot) {

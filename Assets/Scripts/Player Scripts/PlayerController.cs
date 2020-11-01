@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour{
         current_Attack_Timer = attack_Timer;
         audioSource = GetComponent<AudioSource>();
         animation = GetComponent<Animator>();
+        if (aliveTime) aliveTime.startTimer();
     }
 
     // Update is called once per frame
