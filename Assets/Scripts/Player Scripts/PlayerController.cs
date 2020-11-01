@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour{
 
@@ -41,14 +42,16 @@ public class PlayerController : MonoBehaviour{
 
     void MovePlayer(){
 
+
         //Y
-        if(Input.GetAxisRaw("Vertical") > 0f){
+        if ((Input.GetAxisRaw("Vertical")) > 0f) {
             Vector3 temp = transform.position;
             temp.y += speed * Time.deltaTime;
 
             if (temp.y > max_Y) temp.y = max_Y;
             transform.position = temp;
-        } else if (Input.GetAxisRaw("Vertical") < 0f){
+        }
+        else if (Input.GetAxisRaw("Vertical") < 0f) {
             Vector3 temp = transform.position;
             temp.y -= speed * Time.deltaTime;
 
@@ -63,7 +66,8 @@ public class PlayerController : MonoBehaviour{
 
             if (temp.x > max_X) temp.x = max_X;
             transform.position = temp;
-        } else if (Input.GetAxisRaw("Horizontal") < 0f) {
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0f) {
             Vector3 temp = transform.position;
             temp.x -= speed * Time.deltaTime;
 
@@ -80,7 +84,7 @@ public class PlayerController : MonoBehaviour{
         }
 
 
-        if (Input.GetKeyDown(KeyCode.K)){
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.K)) {
             if (canAttack){
                 canAttack = false;
                 attack_Timer = 0f;
@@ -103,12 +107,13 @@ public class PlayerController : MonoBehaviour{
     void DeactivateGameObject_GameOver() {
         gameObject.SetActive(false);
         Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
     void OnTriggerEnter2D(Collider2D target) {
         if (target.tag == "Bullet" || target.tag == "Enemy") {
 
         //if (target.tag == "Enemy"){
-            Invoke("DeactivateGameObject_GameOver", 3f);
+            Invoke("DeactivateGameObject_GameOver", 2.5f);
             audioSource.PlayOneShot(audio_explosion, 1f);
             animation.Play("Destroy");
         }
