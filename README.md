@@ -2,7 +2,7 @@
 > Space survival game.
 
 
-| [:sparkles: Getting Started](#getting-started) | [:camera: Screenshots](#gifs-and-screenshots) |
+| [:sparkles: Getting Started](#getting-started) | [:camera: GIFs and Screenshots](#gifs-and-screenshots) |
 
 
 <p align="center">
